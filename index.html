@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Varma studio — игры для браузера</title>
+<meta name="description" content="Varma studio — независимая студия: браузерные игры на HTML5. Игра «Лопни пузыри»: аркада с шариками на 100 уровней." />
+<meta name="theme-color" content="#07183e" />
+<link rel="icon" href="assets/icon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Независимая студия</p>
+    <h1>Varma studio</h1>
+    <p class="lead">Делаем небольшие игры для браузера на HTML5 и JavaScript: без установки, без регистрации, с понятными правилами.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="game" id="game">
+    <div class="game__art">
+      <img src="assets/feature.png" alt="Игра «Лопни пузыри»" width="1024" height="500" loading="lazy" />
+    </div>
+    <div class="game__body">
+      <h2>Лопни пузыри</h2>
+      <p>Аркада с шариками: целитесь, сбивайте группы от трёх, проходите 100 уровней в десяти мирах. Четыре бустера, звёзды за прохождение и монеты за ловкие ходы.</p>
+      <ul class="facts">
+        <li>100 уровней</li>
+        <li>10 миров</li>
+        <li>4 бустера</li>
+        <li>Телефон и компьютер</li>
+      </ul>
+      <a class="btn" href="https://vadim2451782.github.io/bubble-pop-pikabu/">Играть</a>
+    </div>
+  </section>
+
+  <section class="shots">
+    <img src="assets/game.png" alt="Игровое поле" width="720" height="1280" loading="lazy" />
+    <img src="assets/win.png" alt="Экран победы" width="720" height="1280" loading="lazy" />
+  </section>
+
+  <section class="about" id="about">
+    <h2>О студии</h2>
+    <p>Varma studio — небольшой независимый проект. Игры пишем сами: движок, физика, графика и звук сделаны на Canvas и Web Audio, без сторонних игровых конструкторов. Поэтому игра весит меньше мегабайта и запускается на слабых устройствах.</p>
+    <p>Сейчас игра «Лопни пузыри» доступна в браузере и готовится к публикации в магазинах приложений.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Связь</h2>
+    <p>Вопросы, баги и предложения: <a href="https://github.com/vadim2451782">github.com/vadim2451782</a></p>
+    <p class="muted">Политика конфиденциальности: <a href="privacy.html">privacy.html</a></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Varma studio</span>
+    <span><a href="privacy.html">Конфиденциальность</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
