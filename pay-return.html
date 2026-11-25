@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Оплата завершена — Лопни пузыри</title>
+  <title>Возвращаемся в игру — Лопни пузыри</title>
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
@@ -27,18 +27,16 @@
       box-shadow: 0 24px 60px rgba(0, 6, 24, 0.55);
       text-align: center;
     }
-    .check {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 16px;
+    .spinner {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 18px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, #2fd06d, #0d9147);
-      color: #fff;
-      font-size: 34px;
-      font-weight: 800;
+      border: 3px solid rgba(126, 200, 255, 0.25);
+      border-top-color: #7ec8ff;
+      animation: spin 1s linear infinite;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
     h1 { margin: 0 0 10px; font-size: 24px; }
     p { margin: 0 0 18px; line-height: 1.45; color: #cfe0ff; }
     .btn {
@@ -58,12 +56,14 @@
 </head>
 <body>
   <main class="card">
-    <div class="check" aria-hidden="true">✓</div>
-    <h1>Оплата прошла</h1>
-    <p>Вернитесь в игру — монеты начислятся автоматически.</p>
+    <!-- Neutral on purpose: YooKassa returns here for both success and cancel.
+         The real result is shown in the game, never on this page. -->
+    <div class="spinner" aria-hidden="true"></div>
+    <h1>Возвращаемся в игру</h1>
+    <p>Открываем приложение. Статус оплаты покажем в самой игре.</p>
     <a class="btn" href="bubblepop://payment/done" id="openApp">Вернуться в игру</a>
     <p class="hint">
-      Если игра не открылась, запустите её вручную: покупка уже в очереди и придёт при запуске.
+      Если игра не открылась, запустите её вручную — покупка придёт автоматически, как только банк её подтвердит.
     </p>
     <a class="link" href="./">Открыть игру в браузере</a>
   </main>
@@ -78,7 +78,7 @@
         } catch (error) {
           /* the button stays available */
         }
-      }, 700);
+      }, 500);
     }
   </script>
 </body>
