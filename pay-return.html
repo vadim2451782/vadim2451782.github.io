@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Оплата завершена — Лопни пузыри</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(120% 90% at 50% 0%, #1f4f9e 0%, #12306c 42%, #071736 100%);
+      color: #eaf2ff;
+    }
+    .card {
+      width: 100%;
+      max-width: 420px;
+      padding: 28px 24px;
+      border-radius: 22px;
+      background: rgba(10, 28, 64, 0.86);
+      border: 1px solid rgba(120, 176, 255, 0.25);
+      box-shadow: 0 24px 60px rgba(0, 6, 24, 0.55);
+      text-align: center;
+    }
+    .check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #2fd06d, #0d9147);
+      color: #fff;
+      font-size: 34px;
+      font-weight: 800;
+    }
+    h1 { margin: 0 0 10px; font-size: 24px; }
+    p { margin: 0 0 18px; line-height: 1.45; color: #cfe0ff; }
+    .btn {
+      display: block;
+      padding: 15px 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ffd35c, #ff9f1a);
+      color: #3a2200;
+      font-weight: 800;
+      font-size: 17px;
+      text-decoration: none;
+    }
+    .btn:active { transform: translateY(1px); }
+    .hint { margin: 16px 0 0; font-size: 13px; color: rgba(207, 224, 255, 0.7); }
+    .link { display: inline-block; margin-top: 14px; font-size: 13px; color: #9cc4ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="check" aria-hidden="true">✓</div>
+    <h1>Оплата прошла</h1>
+    <p>Вернитесь в игру — монеты начислятся автоматически.</p>
+    <a class="btn" href="bubblepop://payment/done" id="openApp">Вернуться в игру</a>
+    <p class="hint">
+      Если игра не открылась, запустите её вручную: покупка уже в очереди и придёт при запуске.
+    </p>
+    <a class="link" href="./">Открыть игру в браузере</a>
+  </main>
+  <script>
+    // Android opens this page in the browser after YooKassa. Try to jump back
+    // into the app right away; the button above is the fallback for browsers
+    // that require a tap for custom schemes.
+    if (/Android/i.test(navigator.userAgent)) {
+      setTimeout(() => {
+        try {
+          window.location.href = 'bubblepop://payment/done';
+        } catch (error) {
+          /* the button stays available */
+        }
+      }, 700);
+    }
+  </script>
+</body>
+</html>
